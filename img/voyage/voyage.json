@@ -1,0 +1,508 @@
+[
+ {
+  "file": "piraeus-0029.jpg",
+  "place": {
+   "en": "Piraeus",
+   "uk": "Пірей",
+   "ru": "Пирей"
+  },
+  "subject": {
+   "en": "Church square with a bench",
+   "uk": "Площа з церквою і лавою",
+   "ru": "Площадь с церковью и скамейкой"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1148,
+  "h": 1600,
+  "tw": 344,
+  "th": 480
+ },
+ {
+  "file": "piraeus-0032.jpg",
+  "place": {
+   "en": "Piraeus",
+   "uk": "Пірей",
+   "ru": "Пирей"
+  },
+  "subject": {
+   "en": "Piraeus Tower",
+   "uk": "Пірейська вежа",
+   "ru": "Пирейская башня"
+  },
+  "year": 1993,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1051,
+  "h": 1600,
+  "tw": 315,
+  "th": 480
+ },
+ {
+  "file": "piraeus-0033.jpg",
+  "place": {
+   "en": "Piraeus",
+   "uk": "Пірей",
+   "ru": "Пирей"
+  },
+  "subject": {
+   "en": "Ship's bow at the quay",
+   "uk": "Ніс корабля біля причалу",
+   "ru": "Нос корабля у причала"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1140,
+  "h": 1600,
+  "tw": 342,
+  "th": 480
+ },
+ {
+  "file": "piraeus-0035.jpg",
+  "place": {
+   "en": "Piraeus",
+   "uk": "Пірей",
+   "ru": "Пирей"
+  },
+  "subject": {
+   "en": "Town hall and café",
+   "uk": "Ратуша і кафе",
+   "ru": "Ратуша и кафе"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1155,
+  "h": 1600,
+  "tw": 346,
+  "th": 480
+ },
+ {
+  "file": "valletta-0027.jpg",
+  "place": {
+   "en": "Valletta, Malta",
+   "uk": "Валлетта, Мальта",
+   "ru": "Валлетта, Мальта"
+  },
+  "subject": {
+   "en": "Gates of Malta",
+   "uk": "Ворота Мальти",
+   "ru": "Ворота Мальты"
+  },
+  "year": 1993,
+  "medium": {
+   "en": "Drawing on paper",
+   "uk": "Папір, рисунок",
+   "ru": "Бумага, рисунок"
+  },
+  "w": 1600,
+  "h": 1452,
+  "tw": 529,
+  "th": 480
+ },
+ {
+  "file": "valletta-0041.jpg",
+  "place": {
+   "en": "Valletta, Malta",
+   "uk": "Валлетта, Мальта",
+   "ru": "Валлетта, Мальта"
+  },
+  "subject": {
+   "en": "Liner in the harbour",
+   "uk": "Лайнер у гавані",
+   "ru": "Лайнер в гавани"
+  },
+  "year": 1993,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1436,
+  "tw": 535,
+  "th": 480
+ },
+ {
+  "file": "valletta-0067.jpg",
+  "place": {
+   "en": "Valletta, Malta",
+   "uk": "Валлетта, Мальта",
+   "ru": "Валлетта, Мальта"
+  },
+  "subject": {
+   "en": "Street with a dome",
+   "uk": "Вулиця з куполом",
+   "ru": "Улица с куполом"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1203,
+  "h": 1600,
+  "tw": 361,
+  "th": 480
+ },
+ {
+  "file": "valletta-0017.jpg",
+  "place": {
+   "en": "Valletta, Malta",
+   "uk": "Валлетта, Мальта",
+   "ru": "Валлетта, Мальта"
+  },
+  "subject": {
+   "en": "Street below the bastion",
+   "uk": "Вулиця під бастіоном",
+   "ru": "Улица под бастионом"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 978,
+  "h": 1600,
+  "tw": 293,
+  "th": 480
+ },
+ {
+  "file": "naples-0013.jpg",
+  "place": {
+   "en": "Naples",
+   "uk": "Неаполь",
+   "ru": "Неаполь"
+  },
+  "subject": {
+   "en": "Castel Nuovo and Galleria Umberto",
+   "uk": "Кастель-Нуово і галерея Умберто",
+   "ru": "Кастель-Нуово и галерея Умберто"
+  },
+  "year": 1993,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1519,
+  "tw": 506,
+  "th": 480
+ },
+ {
+  "file": "rome-0038.jpg",
+  "place": {
+   "en": "Rome",
+   "uk": "Рим",
+   "ru": "Рим"
+  },
+  "subject": {
+   "en": "St Peter's Basilica",
+   "uk": "Собор Святого Петра",
+   "ru": "Собор Святого Петра"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1112,
+  "h": 1600,
+  "tw": 334,
+  "th": 480
+ },
+ {
+  "file": "rome-0058.jpg",
+  "place": {
+   "en": "Rome",
+   "uk": "Рим",
+   "ru": "Рим"
+  },
+  "subject": {
+   "en": "Winged Victory on a column",
+   "uk": "Крилата Вікторія на колоні",
+   "ru": "Крылатая Виктория на колонне"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1149,
+  "h": 1600,
+  "tw": 345,
+  "th": 480
+ },
+ {
+  "file": "barcelona-0073.jpg",
+  "place": {
+   "en": "Barcelona",
+   "uk": "Барселона",
+   "ru": "Барселона"
+  },
+  "subject": {
+   "en": "Sagrada Família",
+   "uk": "Саграда Фамілія",
+   "ru": "Саграда Фамилия"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1018,
+  "h": 1600,
+  "tw": 305,
+  "th": 480
+ },
+ {
+  "file": "barcelona-0094.jpg",
+  "place": {
+   "en": "Barcelona",
+   "uk": "Барселона",
+   "ru": "Барселона"
+  },
+  "subject": {
+   "en": "Rearing horse statues",
+   "uk": "Скульптури коней на дибках",
+   "ru": "Скульптуры вздыбленных коней"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1457,
+  "tw": 527,
+  "th": 480
+ },
+ {
+  "file": "barcelona-0091.jpg",
+  "place": {
+   "en": "Barcelona",
+   "uk": "Барселона",
+   "ru": "Барселона"
+  },
+  "subject": {
+   "en": "Lion statues",
+   "uk": "Скульптури левів",
+   "ru": "Скульптуры львов"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1123,
+  "tw": 684,
+  "th": 480
+ },
+ {
+  "file": "barcelona-0096.jpg",
+  "place": {
+   "en": "Barcelona",
+   "uk": "Барселона",
+   "ru": "Барселона"
+  },
+  "subject": {
+   "en": "Harbour with a cable car",
+   "uk": "Гавань з канатною дорогою",
+   "ru": "Гавань с канатной дорогой"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1169,
+  "tw": 657,
+  "th": 480
+ },
+ {
+  "file": "santa-cruz-de-tenerife-0040.jpg",
+  "place": {
+   "en": "Santa Cruz de Tenerife",
+   "uk": "Санта-Крус-де-Тенерифе",
+   "ru": "Санта-Крус-де-Тенерифе"
+  },
+  "subject": {
+   "en": "Lighthouse and liner",
+   "uk": "Маяк і лайнер",
+   "ru": "Маяк и лайнер"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1161,
+  "tw": 661,
+  "th": 480
+ },
+ {
+  "file": "gibraltar-0065.jpg",
+  "place": {
+   "en": "Gibraltar",
+   "uk": "Гібралтар",
+   "ru": "Гибралтар"
+  },
+  "subject": {
+   "en": "View from the Rock with a Barbary ape",
+   "uk": "Вид зі Скелі з мавпою-маготом",
+   "ru": "Вид со Скалы с обезьяной-маготом"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1205,
+  "tw": 637,
+  "th": 480
+ },
+ {
+  "file": "palma-de-mallorca-0047.jpg",
+  "place": {
+   "en": "Palma de Mallorca",
+   "uk": "Пальма-де-Мальорка",
+   "ru": "Пальма-де-Мальорка"
+  },
+  "subject": {
+   "en": "Waterfront with palms",
+   "uk": "Набережна з пальмами",
+   "ru": "Набережная с пальмами"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1077,
+  "tw": 713,
+  "th": 480
+ },
+ {
+  "file": "casablanca-0060.jpg",
+  "place": {
+   "en": "Casablanca",
+   "uk": "Касабланка",
+   "ru": "Касабланка"
+  },
+  "subject": {
+   "en": "Square with palms",
+   "uk": "Площа з пальмами",
+   "ru": "Площадь с пальмами"
+  },
+  "year": 1994,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1566,
+  "tw": 490,
+  "th": 480
+ },
+ {
+  "file": "istanbul-0080.jpg",
+  "place": {
+   "en": "Istanbul",
+   "uk": "Стамбул",
+   "ru": "Стамбул"
+  },
+  "subject": {
+   "en": "Skyline with minarets",
+   "uk": "Панорама з мінаретами",
+   "ru": "Панорама с минаретами"
+  },
+  "year": 1993,
+  "medium": {
+   "en": "Drawing on paper",
+   "uk": "Папір, рисунок",
+   "ru": "Бумага, рисунок"
+  },
+  "w": 1174,
+  "h": 1600,
+  "tw": 352,
+  "th": 480
+ },
+ {
+  "file": "istanbul-0082.jpg",
+  "place": {
+   "en": "Istanbul",
+   "uk": "Стамбул",
+   "ru": "Стамбул"
+  },
+  "subject": {
+   "en": "Bosphorus Bridge",
+   "uk": "Босфорський міст",
+   "ru": "Босфорский мост"
+  },
+  "year": 1993,
+  "medium": {
+   "en": "Felt-tip pen on paper",
+   "uk": "Папір, фломастер",
+   "ru": "Бумага, фломастер"
+  },
+  "w": 1600,
+  "h": 1148,
+  "tw": 669,
+  "th": 480
+ },
+ {
+  "file": "odesa-0078.jpg",
+  "place": {
+   "en": "Odesa",
+   "uk": "Одеса",
+   "ru": "Одесса"
+  },
+  "subject": {
+   "en": "Winter street with plane trees",
+   "uk": "Зимова вулиця з платанами",
+   "ru": "Зимняя улица с платанами"
+  },
+  "year": null,
+  "medium": {
+   "en": "Pencil on paper",
+   "uk": "Папір, олівець",
+   "ru": "Бумага, карандаш"
+  },
+  "w": 1600,
+  "h": 1199,
+  "tw": 641,
+  "th": 480
+ }
+]
