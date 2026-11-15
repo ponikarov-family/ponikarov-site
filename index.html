@@ -82,18 +82,16 @@ nav .lang span{opacity:.5}
 .press .wrap{text-align:center;margin-bottom:34px}
 .press h2{font:400 clamp(30px,4vw,44px)/1.1 var(--serif);margin-top:10px}
 .press .hint{margin-top:12px;font:400 12px/1.6 var(--sans);letter-spacing:.08em;color:var(--stone)}
-.press .viewport{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.press .track{display:flex;gap:28px;width:max-content;animation:pressRoll 160s linear infinite;padding:10px 0 20px}
-.press .viewport.paused .track{animation-play-state:paused}
-@media (hover:hover) and (pointer:fine){.press .viewport:hover .track{animation-play-state:paused}}
-@keyframes pressRoll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.press .viewport{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.press .viewport::-webkit-scrollbar{display:none}.press .viewport.drag{cursor:grabbing}
+.press .track{display:flex;gap:28px;width:max-content;padding:10px 24px 20px}
 .press .clip{flex:none;width:auto;background:none;border:0;padding:0;cursor:pointer;text-align:left;color:inherit;font:inherit}
-.press .clip img{display:block;height:180px;width:auto;background:#fff;padding:8px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 18px 36px -18px rgba(40,30,10,.4);transition:transform .4s}
+.press .clip img{-webkit-user-drag:none;user-select:none;display:block;height:180px;width:auto;background:#fff;padding:8px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 18px 36px -18px rgba(40,30,10,.4);transition:transform .4s}
 .press .clip:hover img,.press .clip:focus-visible img{transform:translateY(-4px)}
 .press .clip b{display:block;max-width:300px;margin-top:12px;font:400 17px/1.25 var(--serif);white-space:normal}
 .press .clip span{display:block;margin-top:4px;font:400 10px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--stone)}
 @media (max-width:700px){.press .clip img{height:120px;padding:6px}.press .clip b{font-size:15px;max-width:220px}.press .track{gap:20px}}
-@media (prefers-reduced-motion:reduce){.press .track{animation:none}.press .viewport{overflow-x:auto;-webkit-mask-image:none;mask-image:none}}
+
 .reader{border:0;padding:0;max-width:min(860px,100vw);width:100%;max-height:100vh;height:100%;background:var(--paper);color:var(--ink)}
 .reader::backdrop{background:rgba(22,20,15,.72)}
 .reader .in{height:100%;overflow:auto;-webkit-overflow-scrolling:touch;padding:22px clamp(16px,4vw,44px) 60px}
@@ -437,9 +435,28 @@ document.querySelectorAll('.work').forEach(function(a){
 var LG="en",PRE="",C={"eb": "In the press", "h2": "What the newspapers wrote", "hint": "Tap a clipping to read the whole article", "tl": "English", "orig": "Original", "close": "Close", "scan": "Open the full scan ↗", "approx": "c.", "note": "Translation by the family site.", "same": null, "lab": "Newspaper clippings about Vasyl Ponikarov", "loading": "Loading…"};
 var sec=document.querySelector('.press');if(!sec)return;
 var vp=sec.querySelector('.viewport'),dlg=document.querySelector('.reader'),body=dlg.querySelector('.body');
-vp.addEventListener('touchstart',function(){clearTimeout(rt);vp.classList.add('paused')},{passive:true});
-var rt;function resume(){clearTimeout(rt);rt=setTimeout(function(){vp.classList.remove('paused')},1500)}
-vp.addEventListener('touchend',resume,{passive:true});vp.addEventListener('touchcancel',resume,{passive:true});
+var half=0,pos=0,last=0,paused=false,rt,speed=40,rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function measure(){half=vp.querySelector('.track').scrollWidth/2}
+function hold(){paused=true;clearTimeout(rt)}
+function resume(){clearTimeout(rt);rt=setTimeout(function(){pos=vp.scrollLeft;paused=false},1500)}
+function wrap(){if(!half||!started)return;if(vp.scrollLeft>=1.5*half){vp.scrollLeft-=half;pos-=half}else if(vp.scrollLeft<0.5*half){vp.scrollLeft+=half;pos+=half}}
+function tick(t){var dt=last?Math.min((t-last)/1000,0.1):0;last=t;
+  if(!started){measure();if(half){vp.scrollLeft=half;if(vp.scrollLeft>half-5){pos=vp.scrollLeft;started=true}}}
+  if(!paused&&!rm&&half&&!document.hidden){if(Math.abs(vp.scrollLeft-pos)>3)pos=vp.scrollLeft;pos+=speed*dt;vp.scrollLeft=pos;}
+  wrap();requestAnimationFrame(tick)}
+window.addEventListener('resize',measure);measure();var started=false;
+vp.addEventListener('dragstart',function(e){e.preventDefault()});
+requestAnimationFrame(tick);
+vp.addEventListener('touchstart',hold,{passive:true});vp.addEventListener('touchend',resume,{passive:true});vp.addEventListener('touchcancel',resume,{passive:true});
+vp.addEventListener('wheel',function(){hold();resume()},{passive:true});
+vp.addEventListener('scroll',function(){if(paused)wrap()},{passive:true});
+var fine=window.matchMedia&&matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(fine){vp.addEventListener('mouseenter',hold);vp.addEventListener('mouseleave',resume);}
+var dx=null,sl=0,moved=false;
+vp.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;dx=e.clientX;sl=vp.scrollLeft;moved=false;hold()});
+window.addEventListener('pointermove',function(e){if(dx===null)return;var d=e.clientX-dx;if(Math.abs(d)>5){moved=true;vp.classList.add('drag')}if(moved){vp.scrollLeft=sl-d;}});
+window.addEventListener('pointerup',function(){if(dx===null)return;dx=null;vp.classList.remove('drag');if(!fine)resume()});
+vp.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
 function el(t,cls,txt){var e=document.createElement(t);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e}
 function open(id){
   body.innerHTML='';body.appendChild(el('p','meta',C.loading));
