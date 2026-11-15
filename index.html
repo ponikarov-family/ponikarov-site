@@ -105,6 +105,21 @@ nav .lang span{opacity:.5}
 .w3{grid-column:2/8}.w4{grid-column:8/12;margin-top:120px}
 .w5{grid-column:1/8}.w6{grid-column:8/13;margin-top:100px}
 .w7{grid-column:1/5}.w8{grid-column:5/9;margin-top:80px}.w9{grid-column:9/13;margin-top:20px}
+/* flip card: tap a painting to read about it */
+.work .flip{position:relative;perspective:1800px;cursor:pointer;outline:none}
+.work .flip-in{position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.work.flipped .flip-in{transform:rotateY(180deg)}
+.work .flip figure{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.work .back{position:absolute;inset:0;transform:rotateY(180deg);-webkit-backface-visibility:hidden;backface-visibility:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(40,30,10,.35);padding:clamp(18px,5%,44px);display:flex;flex-direction:column;justify-content:center;gap:12px;overflow:auto;text-align:left;padding-bottom:64px}
+.work .back h3{font:400 clamp(22px,2.4vw,32px)/1.1 var(--serif);color:var(--ink)}
+.work .back .meta{font:400 10px/1.6 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.work .back p{font:400 15px/1.6 var(--sans);color:#4a453c;max-width:46ch}
+.work .back .todo{color:#b0905a;font-style:italic;letter-spacing:.08em;text-transform:none}
+.work .back .turn{position:absolute;left:clamp(18px,5%,44px);bottom:24px;font:400 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.work .tapme{position:absolute;right:32px;bottom:32px;width:34px;height:34px;border-radius:50%;background:rgba(250,247,241,.92);border:1px solid var(--line);display:grid;place-items:center;font:400 16px/1 var(--serif);color:var(--gold);box-shadow:0 4px 14px rgba(0,0,0,.12);-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(1px);pointer-events:none}
+.work .flip:focus-visible figure{outline:2px solid var(--gold);outline-offset:4px}
+@media (max-width:700px){.work .back p{font-size:14px}.work .tapme{right:26px;bottom:26px}}
+@media (prefers-reduced-motion:reduce){.work .flip-in{transition:none}.work.flipped .flip-in{transform:none}.work .back{transform:none;opacity:0;pointer-events:none}.work.flipped .back{opacity:1;pointer-events:auto}}
 .works .more{text-align:center;margin-top:90px}
 .btn{display:inline-block;border:1px solid var(--gold);color:var(--ink);padding:18px 42px;font:400 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;transition:all .35s}
 .btn:hover{background:var(--gold);color:var(--paper)}
@@ -295,5 +310,41 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
     <span>© The family of Vasyl Ponikarov · All images protected by copyright</span>
   </div>
 </footer>
+<script>
+/* Back-of-painting texts. year/size: fill only from the family catalogue; null = not shown publicly. */
+(function(){
+var T={turn:'Tap to turn back',medium:'Watercolor on paper',fam:'Original in the family collection',todo:'year to be confirmed by the family',about:'About this painting'};
+var W={
+'poppies.jpg':{y:null,s:null,d:'Red poppies painted wet-on-wet: the colour is allowed to bloom into the damp paper, so the petals seem to tremble.'},
+'sunflowers.jpg':{y:null,s:null,d:'Sunflower heads above a table of apples. The yellows are laid in quickly and the shadows left to soften on wet paper.'},
+'lilac.jpg':{y:null,s:null,d:'A bouquet of lilac in pinks and violets, its leaves drawn in quick dark strokes against pale light.'},
+'irises.jpg':{y:null,s:null,d:'Violet and yellow summer flowers, painted almost entirely wet, so the colours meet and blur.'},
+'sea-shore.jpg':{y:null,s:null,d:'A green sea under blue mountains, the shore set down in a few broad strokes.'},
+'sunset-bay.jpg':{y:null,s:null,d:'Evening light over a bay ringed by mountains.'},
+'birches.jpg':{y:null,s:null,d:'Birch trunks in a summer wood, with light falling through the leaves.'},
+'trees-lake.jpg':{y:null,s:null,d:'Trees on the shore of a quiet lake.'},
+'house-forest.jpg':{y:null,s:null,d:'A small house among the trees of a forest.'}
+};
+document.querySelectorAll('.work').forEach(function(a){
+  var fig=a.querySelector('figure'),img=fig&&fig.querySelector('img');if(!img)return;
+  var k=img.getAttribute('src').split('/').pop(),w=W[k];if(!w)return;
+  var title=a.querySelector('.cap b').textContent;
+  var flip=document.createElement('div');flip.className='flip';flip.setAttribute('role','button');flip.tabIndex=0;
+  flip.setAttribute('aria-pressed','false');flip.setAttribute('aria-label',T.about+': '+title);
+  var inn=document.createElement('div');inn.className='flip-in';
+  fig.parentNode.insertBefore(flip,fig);flip.appendChild(inn);inn.appendChild(fig);
+  var tap=document.createElement('span');tap.className='tapme';tap.setAttribute('aria-hidden','true');tap.textContent='i';inn.appendChild(tap);
+  var b=document.createElement('div');b.className='back';
+  var meta=T.medium+(w.y?' · '+w.y:'')+(w.s?' · '+w.s+' cm':'');
+  b.innerHTML='<h3></h3><div class="meta"></div>'+(w.y?'':'<div class="meta todo"></div>')+'<p></p><div class="meta">'+T.fam+'</div><div class="turn">↺ '+T.turn+'</div>';
+  b.querySelector('h3').textContent=title;b.querySelectorAll('.meta')[0].textContent=meta;
+  if(!w.y)b.querySelector('.todo').textContent=T.todo;
+  b.querySelector('p').textContent=w.d;inn.appendChild(b);
+  function t(){var on=a.classList.toggle('flipped');flip.setAttribute('aria-pressed',on?'true':'false');}
+  flip.addEventListener('click',t);
+  flip.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
+});
+})();
+</script>
 </body>
 </html>
