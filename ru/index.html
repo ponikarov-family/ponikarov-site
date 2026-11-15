@@ -105,6 +105,21 @@ nav .lang span{opacity:.5}
 .w3{grid-column:2/8}.w4{grid-column:8/12;margin-top:120px}
 .w5{grid-column:1/8}.w6{grid-column:8/13;margin-top:100px}
 .w7{grid-column:1/5}.w8{grid-column:5/9;margin-top:80px}.w9{grid-column:9/13;margin-top:20px}
+/* flip card: tap a painting to read about it */
+.work .flip{position:relative;perspective:1800px;cursor:pointer;outline:none}
+.work .flip-in{position:relative;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.work.flipped .flip-in{transform:rotateY(180deg)}
+.work .flip figure{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.work .back{position:absolute;inset:0;transform:rotateY(180deg);-webkit-backface-visibility:hidden;backface-visibility:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(40,30,10,.35);padding:clamp(18px,5%,44px);display:flex;flex-direction:column;justify-content:center;gap:12px;overflow:auto;text-align:left;padding-bottom:64px}
+.work .back h3{font:400 clamp(22px,2.4vw,32px)/1.1 var(--serif);color:var(--ink)}
+.work .back .meta{font:400 10px/1.6 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.work .back p{font:400 15px/1.6 var(--sans);color:#4a453c;max-width:46ch}
+.work .back .todo{color:#b0905a;font-style:italic;letter-spacing:.08em;text-transform:none}
+.work .back .turn{position:absolute;left:clamp(18px,5%,44px);bottom:24px;font:400 10px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--stone)}
+.work .tapme{position:absolute;right:32px;bottom:32px;width:34px;height:34px;border-radius:50%;background:rgba(250,247,241,.92);border:1px solid var(--line);display:grid;place-items:center;font:400 16px/1 var(--serif);color:var(--gold);box-shadow:0 4px 14px rgba(0,0,0,.12);-webkit-backface-visibility:hidden;backface-visibility:hidden;transform:translateZ(1px);pointer-events:none}
+.work .flip:focus-visible figure{outline:2px solid var(--gold);outline-offset:4px}
+@media (max-width:700px){.work .back p{font-size:14px}.work .tapme{right:26px;bottom:26px}}
+@media (prefers-reduced-motion:reduce){.work .flip-in{transition:none}.work.flipped .flip-in{transform:none}.work .back{transform:none;opacity:0;pointer-events:none}.work.flipped .back{opacity:1;pointer-events:auto}}
 .works .more{text-align:center;margin-top:90px}
 .btn{display:inline-block;border:1px solid var(--gold);color:var(--ink);padding:18px 42px;font:400 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;transition:all .35s}
 .btn:hover{background:var(--gold);color:var(--paper)}
@@ -176,7 +191,7 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
 </head>
 <body>
 <section class="hero" id="top">
-  <img src="../img/sunflowers-hero.jpg" alt="Подсолнухи, акварель Василия Поникарова" width="1600" height="1185"><script>(function(){var H=[['sunflowers-hero.jpg','Подсолнухи, акварель Василия Поникарова'],['poppies.jpg','Маки, акварель Василия Поникарова'],['lilac.jpg','Сирень, акварель Василия Поникарова'],['irises.jpg','Летний букет, акварель Василия Поникарова'],['sunflowers.jpg','Подсолнухи и яблоки, акварель Василия Поникарова'],['sea-shore.jpg','Морской берег, акварель Василия Поникарова']];var i=0;try{i=(parseInt(localStorage.getItem('pnkHero')||'-1',10)+1)%H.length;localStorage.setItem('pnkHero',i);}catch(e){i=Math.floor(Math.random()*H.length);}var im=document.querySelector('.hero img');if(im&&i>0){im.removeAttribute('width');im.removeAttribute('height');im.src='../img/'+H[i][0];im.alt=H[i][1];}})();</script>
+  <img src="../img/sunflowers-hero.jpg" alt="Подсолнухи, акварель Василия Поникарова" width="1600" height="1185"><script>(function(){var H=[['sunflowers-hero.jpg','Подсолнухи, акварель Василия Поникарова'],['poppies.jpg','Маки, акварель Василия Поникарова'],['lilac.jpg','Сирень, акварель Василия Поникарова'],['irises.jpg','Летний букет, акварель Василия Поникарова'],['sunflowers.jpg','Подсолнухи и персики, акварель Василия Поникарова'],['sea-shore.jpg','Морской берег, акварель Василия Поникарова']];var i=0;try{i=(parseInt(localStorage.getItem('pnkHero')||'-1',10)+1)%H.length;localStorage.setItem('pnkHero',i);}catch(e){i=Math.floor(Math.random()*H.length);}var im=document.querySelector('.hero img');if(im&&i>0){im.removeAttribute('width');im.removeAttribute('height');im.src='../img/'+H[i][0];im.alt=H[i][1];}})();</script>
   <nav>
     <a class="mark" href="./">Поникаров</a>
     <ul><li><a href="#works">Работы</a></li><li><a href="#artist">Художник</a></li><li><a href="#voyages">Путешествия</a></li><li><a href="#contact">Контакты</a></li></ul>
@@ -210,7 +225,7 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
   </header>
   <div class="grid">
     <article class="work w1"><figure><img src="../img/poppies.jpg" alt="Маки" width="1001" height="1280" loading="lazy"></figure><div class="cap"><b>Маки</b><span>Цветы</span></div></article>
-    <article class="work w2"><figure><img src="../img/sunflowers.jpg" alt="Подсолнухи и яблоки" width="1090" height="1600" loading="lazy"></figure><div class="cap"><b>Подсолнухи</b><span>Цветы</span></div></article>
+    <article class="work w2"><figure><img src="../img/sunflowers.jpg" alt="Подсолнухи и персики" width="1090" height="1600" loading="lazy"></figure><div class="cap"><b>Подсолнухи</b><span>Цветы</span></div></article>
     <article class="work w3"><figure><img src="../img/lilac.jpg" alt="Сирень" width="1513" height="1800" loading="lazy"></figure><div class="cap"><b>Сирень</b><span>Цветы</span></div></article>
     <article class="work w4"><figure><img src="../img/irises.jpg" alt="Летний букет" width="988" height="1280" loading="lazy"></figure><div class="cap"><b>Летний букет</b><span>Цветы</span></div></article>
     <article class="work w5"><figure><img src="../img/sea-shore.jpg" alt="Зелёный морской берег у синих гор" width="1280" height="884" loading="lazy"></figure><div class="cap"><b>Морской берег</b><span>Море</span></div></article>
@@ -295,5 +310,41 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
     <span>© Семья Василия Поникарова · © The family of Vasyl Ponikarov · Все изображения охраняются авторским правом</span>
   </div>
 </footer>
+<script>
+/* Back-of-painting texts. year/size: fill only from the family catalogue; null = not shown publicly. */
+(function(){
+var T={turn:'Коснитесь, чтобы перевернуть',medium:'Акварель, бумага',fam:'Оригинал в семейной коллекции',todo:'',about:'О картине'};
+var W={
+'poppies.jpg':{y:null,s:null,d:'Красные маки, написанные «по-мокрому»: краска расплывается во влажной бумаге, и лепестки будто дрожат.'},
+'sunflowers.jpg':{y:null,s:null,d:'Головы подсолнухов над столом с персиками. Жёлтое положено быстро, а тени смягчаются на мокрой бумаге.'},
+'lilac.jpg':{y:null,s:null,d:'Букет сирени в розовых и фиолетовых тонах; листья — быстрыми тёмными мазками на фоне бледного света.'},
+'irises.jpg':{y:null,s:null,d:'Фиолетовые и жёлтые летние цветы, написанные почти целиком по-мокрому, так что цвета встречаются и размываются.'},
+'sea-shore.jpg':{y:null,s:null,d:'Зелёное море под синими горами; берег — несколькими широкими мазками.'},
+'sunset-bay.jpg':{y:null,s:null,d:'Вечерний свет над бухтой в кольце гор.'},
+'birches.jpg':{y:null,s:null,d:'Стволы берёз в летнем лесу; сквозь листву падает свет.'},
+'trees-lake.jpg':{y:null,s:null,d:'Деревья на берегу тихого озера.'},
+'house-forest.jpg':{y:null,s:null,d:'Небольшой дом среди деревьев.'}
+};
+document.querySelectorAll('.work').forEach(function(a){
+  var fig=a.querySelector('figure'),img=fig&&fig.querySelector('img');if(!img)return;
+  var k=img.getAttribute('src').split('/').pop(),w=W[k];if(!w)return;
+  var title=a.querySelector('.cap b').textContent;
+  var flip=document.createElement('div');flip.className='flip';flip.setAttribute('role','button');flip.tabIndex=0;
+  flip.setAttribute('aria-pressed','false');flip.setAttribute('aria-label',T.about+': '+title);
+  var inn=document.createElement('div');inn.className='flip-in';
+  fig.parentNode.insertBefore(flip,fig);flip.appendChild(inn);inn.appendChild(fig);
+  var tap=document.createElement('span');tap.className='tapme';tap.setAttribute('aria-hidden','true');tap.textContent='i';inn.appendChild(tap);
+  var b=document.createElement('div');b.className='back';
+  var meta=T.medium+(w.y?' · '+w.y:'')+(w.s?' · '+w.s+' см':'');
+  b.innerHTML='<h3></h3><div class="meta"></div>'+'<p></p><div class="meta">'+T.fam+'</div><div class="turn">↺ '+T.turn+'</div>';
+  b.querySelector('h3').textContent=title;b.querySelectorAll('.meta')[0].textContent=meta;
+  
+  b.querySelector('p').textContent=w.d;inn.appendChild(b);
+  function t(){var on=a.classList.toggle('flipped');flip.setAttribute('aria-pressed',on?'true':'false');}
+  flip.addEventListener('click',t);
+  flip.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t();}});
+});
+})();
+</script>
 </body>
 </html>

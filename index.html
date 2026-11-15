@@ -191,7 +191,7 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
 </head>
 <body>
 <section class="hero" id="top">
-  <img src="img/sunflowers-hero.jpg" alt="Sunflowers, a watercolor by Vasyl Ponikarov" width="1600" height="1185"><script>(function(){var H=[['sunflowers-hero.jpg','Sunflowers, a watercolor by Vasyl Ponikarov'],['poppies.jpg','Poppies, a watercolor by Vasyl Ponikarov'],['lilac.jpg','Lilac, a watercolor by Vasyl Ponikarov'],['irises.jpg','Summer bouquet, a watercolor by Vasyl Ponikarov'],['sunflowers.jpg','Sunflowers and apples, a watercolor by Vasyl Ponikarov'],['sea-shore.jpg','The sea shore, a watercolor by Vasyl Ponikarov']];var i=0;try{i=(parseInt(localStorage.getItem('pnkHero')||'-1',10)+1)%H.length;localStorage.setItem('pnkHero',i);}catch(e){i=Math.floor(Math.random()*H.length);}var im=document.querySelector('.hero img');if(im&&i>0){im.removeAttribute('width');im.removeAttribute('height');im.src='img/'+H[i][0];im.alt=H[i][1];}})();</script>
+  <img src="img/sunflowers-hero.jpg" alt="Sunflowers, a watercolor by Vasyl Ponikarov" width="1600" height="1185"><script>(function(){var H=[['sunflowers-hero.jpg','Sunflowers, a watercolor by Vasyl Ponikarov'],['poppies.jpg','Poppies, a watercolor by Vasyl Ponikarov'],['lilac.jpg','Lilac, a watercolor by Vasyl Ponikarov'],['irises.jpg','Summer bouquet, a watercolor by Vasyl Ponikarov'],['sunflowers.jpg','Sunflowers and peaches, a watercolor by Vasyl Ponikarov'],['sea-shore.jpg','The sea shore, a watercolor by Vasyl Ponikarov']];var i=0;try{i=(parseInt(localStorage.getItem('pnkHero')||'-1',10)+1)%H.length;localStorage.setItem('pnkHero',i);}catch(e){i=Math.floor(Math.random()*H.length);}var im=document.querySelector('.hero img');if(im&&i>0){im.removeAttribute('width');im.removeAttribute('height');im.src='img/'+H[i][0];im.alt=H[i][1];}})();</script>
   <nav>
     <a class="mark" href="./">Ponikarov</a>
     <ul><li><a href="#works">Works</a></li><li><a href="#artist">The Artist</a></li><li><a href="#voyages">Voyages</a></li><li><a href="#contact">Contact</a></li></ul>
@@ -225,7 +225,7 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
   </header>
   <div class="grid">
     <article class="work w1"><figure><img src="img/poppies.jpg" alt="Poppies" width="1001" height="1280" loading="lazy"></figure><div class="cap"><b>Poppies</b><span>Flowers</span></div></article>
-    <article class="work w2"><figure><img src="img/sunflowers.jpg" alt="Sunflowers and apples" width="1090" height="1600" loading="lazy"></figure><div class="cap"><b>Sunflowers</b><span>Flowers</span></div></article>
+    <article class="work w2"><figure><img src="img/sunflowers.jpg" alt="Sunflowers and peaches" width="1090" height="1600" loading="lazy"></figure><div class="cap"><b>Sunflowers</b><span>Flowers</span></div></article>
     <article class="work w3"><figure><img src="img/lilac.jpg" alt="Lilac" width="1513" height="1800" loading="lazy"></figure><div class="cap"><b>Lilac</b><span>Flowers</span></div></article>
     <article class="work w4"><figure><img src="img/irises.jpg" alt="Summer bouquet" width="988" height="1280" loading="lazy"></figure><div class="cap"><b>Summer Bouquet</b><span>Flowers</span></div></article>
     <article class="work w5"><figure><img src="img/sea-shore.jpg" alt="A green sea shore below blue mountains" width="1280" height="884" loading="lazy"></figure><div class="cap"><b>The Sea Shore</b><span>The Sea</span></div></article>
@@ -316,7 +316,7 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
 var T={turn:'Tap to turn back',medium:'Watercolor on paper',fam:'Original in the family collection',todo:'year to be confirmed by the family',about:'About this painting'};
 var W={
 'poppies.jpg':{y:null,s:null,d:'Red poppies painted wet-on-wet: the colour is allowed to bloom into the damp paper, so the petals seem to tremble.'},
-'sunflowers.jpg':{y:null,s:null,d:'Sunflower heads above a table of apples. The yellows are laid in quickly and the shadows left to soften on wet paper.'},
+'sunflowers.jpg':{y:null,s:null,d:'Sunflower heads above a table of peaches. The yellows are laid in quickly and the shadows left to soften on wet paper.'},
 'lilac.jpg':{y:null,s:null,d:'A bouquet of lilac in pinks and violets, its leaves drawn in quick dark strokes against pale light.'},
 'irises.jpg':{y:null,s:null,d:'Violet and yellow summer flowers, painted almost entirely wet, so the colours meet and blur.'},
 'sea-shore.jpg':{y:null,s:null,d:'A green sea under blue mountains, the shore set down in a few broad strokes.'},
@@ -336,9 +336,9 @@ document.querySelectorAll('.work').forEach(function(a){
   var tap=document.createElement('span');tap.className='tapme';tap.setAttribute('aria-hidden','true');tap.textContent='i';inn.appendChild(tap);
   var b=document.createElement('div');b.className='back';
   var meta=T.medium+(w.y?' · '+w.y:'')+(w.s?' · '+w.s+' cm':'');
-  b.innerHTML='<h3></h3><div class="meta"></div>'+(w.y?'':'<div class="meta todo"></div>')+'<p></p><div class="meta">'+T.fam+'</div><div class="turn">↺ '+T.turn+'</div>';
+  b.innerHTML='<h3></h3><div class="meta"></div>'+'<p></p><div class="meta">'+T.fam+'</div><div class="turn">↺ '+T.turn+'</div>';
   b.querySelector('h3').textContent=title;b.querySelectorAll('.meta')[0].textContent=meta;
-  if(!w.y)b.querySelector('.todo').textContent=T.todo;
+  
   b.querySelector('p').textContent=w.d;inn.appendChild(b);
   function t(){var on=a.classList.toggle('flipped');flip.setAttribute('aria-pressed',on?'true':'false');}
   flip.addEventListener('click',t);
