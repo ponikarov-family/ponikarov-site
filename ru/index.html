@@ -325,7 +325,7 @@ footer .mark{font:400 14px/1 var(--serif);letter-spacing:.42em;color:var(--ink)}
 <script>
 /* Back-of-painting texts. year/size: fill only from the family catalogue; null = not shown publicly. */
 (function(){
-var T={turn:'Коснитесь, чтобы перевернуть',medium:'Акварель, бумага',fam:'Оригинал в семейной коллекции',todo:'',about:'О картине'};
+var T={tbc:'год: уточняется',turn:'Коснитесь, чтобы перевернуть',medium:'Акварель, бумага',fam:'Оригинал в семейной коллекции',todo:'',about:'О картине'};
 var W={
 'poppies-2000.jpg':{y:2000,s:'86 × 60.5',d:'Большой букет красных и оранжевых маков в синей вазе.'},
 'poppies-mountains-1995.jpg':{y:1995,s:'111.5 × 90',d:'Маки в стеклянной банке на фоне синих гор.'},
@@ -359,7 +359,7 @@ document.querySelectorAll('.work').forEach(function(a){
   fig.parentNode.insertBefore(flip,fig);flip.appendChild(inn);inn.appendChild(fig);
   var tap=document.createElement('span');tap.className='tapme';tap.setAttribute('aria-hidden','true');tap.textContent='i';inn.appendChild(tap);
   var b=document.createElement('div');b.className='back';
-  var meta=T.medium+(w.y?' · '+w.y:'')+(w.s?' · '+w.s+' см':'');
+  var meta=T.medium+(w.y?' · '+w.y:' · '+T.tbc)+(w.s?' · '+w.s+' см':'');
   b.innerHTML='<h3></h3><div class="meta"></div>'+'<p></p><div class="meta">'+T.fam+'</div><div class="turn">↺ '+T.turn+'</div>';
   b.querySelector('h3').textContent=title;b.querySelectorAll('.meta')[0].textContent=meta;
   
